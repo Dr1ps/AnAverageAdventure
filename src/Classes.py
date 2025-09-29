@@ -6,7 +6,7 @@ from pip._internal.utils.misc import enum
 class Player:
     def __init__(self,name,hp):
         self.name = name
-        self.name = hp
+        self.hp = hp
 
     def getName(self):
         return self.name
@@ -16,6 +16,9 @@ class Player:
 
     def heal(self,amount):
         self.hp = self.hp + amount
+
+    def to_dict(self):
+        return {"name": self.name, "hp": self.hp}
 
 class Day:
     def __init__(self):
@@ -36,8 +39,23 @@ class Day:
             self.dayNumber = self.dayNumber + 1
         self.hour = time(newHour,newMinute)
 
-class EventTime(enum):
+class EventTime(enumerate):
     MORNING = 1
     AFTERNOON = 2
     EVENING = 3
+
+class Event:
+    def __init__ (self,code,description,eventTime,choices,duration):
+        self.code = code
+        self.description = description
+        self.eventTime = EventTime(eventTime)
+        self.choices = choices
+        self.duration = duration
+
+class Choice:
+    def __init__(self,name,code):
+        self.name = name
+        self.code = code
+
+
 
