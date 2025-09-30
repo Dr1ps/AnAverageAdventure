@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from datetime import datetime, time, timedelta
 
 from pip._internal.utils.misc import enum
@@ -13,9 +14,11 @@ class Player:
 
     def damage(self,amount):
         self.hp = self.hp - amount
+        print(f"Ouch! Damage taken! -{amount}")
 
     def heal(self,amount):
         self.hp = self.hp + amount
+        print(f"Healed self by +{amount}")
 
     def to_dict(self):
         return {"name": self.name, "hp": self.hp}
@@ -48,14 +51,27 @@ class Event:
     def __init__ (self,code,description,eventTime,choices,duration):
         self.code = code
         self.description = description
-        self.eventTime = EventTime(eventTime)
+        if eventTime == 1:
+            self.eventTime = EventTime.MORNING
+        else:
+            if eventTime == 2:
+                self.eventTime = EventTime.AFTERNOON
+            else:
+                if eventTime == 3:
+                    self.eventTime = EventTime.EVENING
         self.choices = choices
         self.duration = duration
+    def getChoiceById (self,code):
+        for i in self.choices:
+            if i.code == code:
+                return i
+        return nullcontext
 
 class Choice:
-    def __init__(self,name,code):
+    def __init__(self,name,code,description):
         self.name = name
         self.code = code
+        self.description = description
 
 
 
