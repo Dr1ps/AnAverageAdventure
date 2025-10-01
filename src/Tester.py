@@ -3,14 +3,17 @@ from email.headerregistry import DateHeader
 from Classes import Player, Event, Day, Choice, EventTime
 from Manager import Manager
 
-player = Player("Micheal",100)
+print("A new adventurer! Let's begin!")
+name = input("What is your name?")
+
+player = Player(name,100)
 
 day = Day()
 
 manager = Manager (player, day)
 
-print("A new adventurer! Let's begin!")
-print(f"Micheal({player.hp}hp)")
+manager.status()
 
 manager.trigger()
 
+manager.status()

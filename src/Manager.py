@@ -54,6 +54,10 @@ class Manager:
         if method:
             method(chosen)
 
+    def status(self):
+        print("--------------------------------",
+            f"{self.player.name} - {self.player.hp} HP\t {self.day.hour}")
+
 @dataclass
 class EventMethods:
     def __init__ (self,player,event):
@@ -74,6 +78,7 @@ class EventMethods:
                     print("Nonexistent action")
                     chosen = int(input("What will you do?: "))
         print(self.event.getChoiceById(chosen).description)
+
 
 
 
