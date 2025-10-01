@@ -1,4 +1,21 @@
-{
-    "name": "Micheal",
-    "hp": 100
-}
+[
+    {
+        "code": 1,
+        "description": "You find a can of soup perfectly placed in the centerof a tree stump, it's half eaten and looks appealing.",
+        "eventTime": "MORNING",
+        "choices": [
+            {
+                "name": "Eat it",
+                "code": 1,
+                "description": "You ate the can of soup,it was expired! Bleah!!!",
+                "duration": 10
+            },
+            {
+                "name": "Ignore it",
+                "code": 2,
+                "description": "You ignored the soup, you thoughtabout all the bugs you could find in it.",
+                "duration": 0
+            }
+        ]
+    }
+]

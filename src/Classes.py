@@ -1,10 +1,16 @@
+import dataclasses
 from contextlib import nullcontext
 from datetime import datetime, time, timedelta
+from enum import Enum
+from typing import List
+from dataclasses import dataclass
 
 from pip._internal.utils.misc import enum
 
-
+@dataclass
 class Player:
+    name: str
+    hp: int
     def __init__(self,name,hp):
         self.name = name
         self.hp = hp
@@ -20,10 +26,10 @@ class Player:
         self.hp = self.hp + amount
         print(f"Healed self by +{amount}")
 
-    def to_dict(self):
-        return {"name": self.name, "hp": self.hp}
-
+@dataclass
 class Day:
+    dayNumber: int
+    hour: time
     def __init__(self):
         self.dayNumber = 0
         self.hour = time(8,0)
@@ -42,36 +48,40 @@ class Day:
             self.dayNumber = self.dayNumber + 1
         self.hour = time(newHour,newMinute)
 
-class EventTime(enumerate):
+@dataclass
+class EventTime(Enum):
     MORNING = 1
     AFTERNOON = 2
     EVENING = 3
 
-class Event:
-    def __init__ (self,code,description,eventTime,choices,duration):
+@dataclass
+class Choice:
+    name: str
+    code: int
+    description: str
+    duration: int
+    def __init__(self,name,code,description,duration):
+        self.name = name
         self.code = code
         self.description = description
-        if eventTime == 1:
-            self.eventTime = EventTime.MORNING
-        else:
-            if eventTime == 2:
-                self.eventTime = EventTime.AFTERNOON
-            else:
-                if eventTime == 3:
-                    self.eventTime = EventTime.EVENING
-        self.choices = choices
         self.duration = duration
+
+@dataclass
+class Event:
+    code: int
+    description: str
+    eventTime: EventTime
+    choices: List[Choice]
+    def __init__ (self,code,description,eventTime,choices):
+        self.code = code
+        self.description = description
+        self.eventTime = eventTime
+        self.choices = choices
     def getChoiceById (self,code):
         for i in self.choices:
             if i.code == code:
                 return i
         return nullcontext
-
-class Choice:
-    def __init__(self,name,code,description):
-        self.name = name
-        self.code = code
-        self.description = description
 
 
 
