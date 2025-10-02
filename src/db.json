@@ -8,13 +8,21 @@
                 "name": "Eat it",
                 "code": 1,
                 "description": "You ate the can of soup,it was expired! Bleah!!!",
-                "duration": 10
+                "duration": 10,
+                "hpChange": -10,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
             },
             {
                 "name": "Ignore it",
                 "code": 2,
                 "description": "You ignored the soup, you thoughtabout all the bugs you could find in it.",
-                "duration": 0
+                "duration": 0,
+                "hpChange": 0,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
             }
         ]
     }
