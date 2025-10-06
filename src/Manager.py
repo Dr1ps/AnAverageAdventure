@@ -3,6 +3,7 @@ import random
 from ctypes.wintypes import BOOLEAN
 from dataclasses import dataclass
 from email.headerregistry import DateHeader
+from Classes import EventTime
 from typing import List
 from xmlrpc.client import Boolean
 
@@ -18,7 +19,7 @@ class Manager:
     def __init__(self,player,day):
         self.player = player
         self.day = day
-        with open ("db.json","r") as file:
+        with open ("db.json", "r") as file:
             raw = json.load(file)
         self.events = [
             Event(
@@ -30,9 +31,25 @@ class Manager:
             for s in raw
         ]
 
+    def restrictEventList(self,restriction):
+        eventList: List[Event]
+        eventList = []
+        for event in self.events:
+            if event.eventTime == EventTime(restriction).name:
+                eventList.append(event)
+        return eventList
 
     def trigger(self):
-        event = self.events[random.randint(1,len(self.events))-1]
+        timeOfDay = self.day.hour.hour
+        restriction: int
+        if timeOfDay < 12:
+            restriction = 1
+        if timeOfDay >= 12 and timeOfDay < 19:
+            restriction = 2
+        if timeOfDay >= 19:
+            restriction = 3
+        tempList = self.restrictEventList(restriction)
+        event = tempList[random.randint(1,len(tempList))-1]
         print(event.description)
         for iter in event.choices:
             print(f"{iter.code})"+f"{iter.name}")
