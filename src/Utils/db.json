@@ -89,5 +89,52 @@
                 "charismaChange": 0
             }
         ]
+    },
+    {
+        "code": 4,
+        "description": "On your right, as you're walking, there's an immense field that seems to keep going forever. You can see a group of 4 lying on the grass, watching the stars.",
+        "eventTime": "EVENING",
+        "choices": [
+            {
+                "name": "Join them",
+                "code": 1,
+                "description": "You walk up silently, you lay down and they accep your presence. The stars are beautiful, you actually never tried to do this, it is so worth it. You fall asleep, just to wake up to them being gone.",
+                "duration": 30,
+                "hpChange": 0,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 10
+            },
+            {
+                "name": "Throw a rock at them",
+                "code": 2,
+                "description": "You giggle at the idea of throwing a rock at them and you can't resist the urge to do it. You manage to hit a guy in the head, he screams in pain. The other 3 charge at you angrily. You tried to escape, since outnumbered, but they caught you. They slit your throat open with a swiss knife.",
+                "duration": 0,
+                "hpChange": -100,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
+            },
+            {
+                "name": "Shout at them",
+                "code": 3,
+                "description": "You shout, telling them how stupid they look. They angrily stare back, but nothing happens.",
+                "duration": 1,
+                "hpChange": 0,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": -10
+            },
+            {
+                "name": "Ignore them",
+                "code": 4,
+                "description": "You decide to mind your own business, they look stupid anyway.",
+                "duration": 0,
+                "hpChange": 0,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
+            }
+        ]
     }
 ]
