@@ -136,5 +136,42 @@
                 "charismaChange": 0
             }
         ]
+    },
+    {
+        "code": 5,
+        "description": "You meet a dead end, in front of you there's a rather high drop, but it seems you might be able to slide down. You could also go back and take a detour, but that would take longer.",
+        "eventTime": "MORNING",
+        "choices": [
+            {
+                "name": "Slide down",
+                "code": 1,
+                "description": "You risk it and slide down, you hit a couple of branches, but that's not so bad. You take a couple of minutes to clean yourself from the dirt.",
+                "duration": 5,
+                "hpChange": -5,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
+            },
+            {
+                "name": "Take a detour",
+                "code": 2,
+                "description": "You decide to play it safe and take a detour, you walk down a hidden path that eventually brings you back at the dead end's drop, just not at the top of it.",
+                "duration": 60,
+                "hpChange": 0,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
+            },
+            {
+                "name": "Jump off",
+                "code": 3,
+                "description": "Are you fucking crazy?",
+                "duration": 0,
+                "hpChange": -100,
+                "attackChange": 0,
+                "defenseChange": 0,
+                "charismaChange": 0
+            }
+        ]
     }
 ]

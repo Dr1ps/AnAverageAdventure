@@ -74,6 +74,7 @@ class Manager:
                 print("Error")
                 return
         self.triggerChoice(event.getChoiceById(chosen))
+        input("\nInput anything to continue\n")
         self.status()
         return 1
 
